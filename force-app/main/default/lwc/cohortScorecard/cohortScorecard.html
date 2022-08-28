@@ -1,45 +1,35 @@
 <template>
     <lightning-card title="CohortScorecard" icon-name="custom:custom14">
-        <div class="slds-grid slds-wrap">
+        <lightning-layout>
             <!-- Header row -->
-            <div class="slds-size_1-of-4">
-                <div class="slds-box slds-box_x-small slds-text-align_center slds-m-around_x-small slds-text-title_bold">Metric</div>
-            </div>
-            <div class="slds-size_1-of-4">
-                <div class="slds-box slds-box_x-small slds-text-align_center slds-m-around_x-small slds-text-title_bold">Percentile</div>
-            </div>
-            <div class="slds-size_1-of-4">
-                <div class="slds-box slds-box_x-small slds-text-align_center slds-m-around_x-small slds-text-title_bold">Count</div>
-            </div>
-            <div class="slds-size_1-of-4">
-                <div class="slds-box slds-box_x-small slds-text-align_center slds-m-around_x-small slds-text-title_bold">Cohort Average</div>
-            </div>
-            <!-- Citations row -->
-            <div class="slds-size_1-of-4">
-                <div class="slds-box slds-box_x-small slds-text-align_center slds-m-around_x-small">Citations</div>
-            </div>
-            <div class="slds-size_1-of-4">
-                <div class="slds-box slds-box_x-small slds-text-align_center slds-m-around_x-small"><lightning-formatted-number value={citationsPercentile}></lightning-formatted-number></div>
-            </div>
-            <div class="slds-size_1-of-4">
-                <div class="slds-box slds-box_x-small slds-text-align_center slds-m-around_x-small"><lightning-formatted-number value={citationsCount}></lightning-formatted-number></div>
-            </div>
-            <div class="slds-size_1-of-4">
-                <div class="slds-box slds-box_x-small slds-text-align_center slds-m-around_x-small"><lightning-formatted-number value={citationsAverage}></lightning-formatted-number></div>
-            </div>
-            <!-- Publications row -->
-            <div class="slds-size_1-of-4">
-                <div class="slds-box slds-box_x-small slds-text-align_center slds-m-around_x-small">Publications</div>
-            </div>
-            <div class="slds-size_1-of-4">
-                <div class="slds-box slds-box_x-small slds-text-align_center slds-m-around_x-small"><lightning-formatted-number value={publicationsPercentile}></lightning-formatted-number></div>
-            </div>
-            <div class="slds-size_1-of-4">
-                <div class="slds-box slds-box_x-small slds-text-align_center slds-m-around_x-small"><lightning-formatted-number value={publicationsCount}></lightning-formatted-number></div>
-            </div>
-            <div class="slds-size_1-of-4">
-                <div class="slds-box slds-box_x-small slds-text-align_center slds-m-around_x-small"><lightning-formatted-number value={publicationsAverage}></lightning-formatted-number></div>
-            </div>
-        </div>
+            <lightning-layout-item padding="around-small">
+                <div class="header-column">
+                    <p class="field-title slds-text-title_bold" title="Metric">Metric</p>
+                    <p>Citations</p>
+                    <p>Publications</p>
+                </div>
+            </lightning-layout-item>
+            <lightning-layout-item padding="around-small">
+                <div class="header-column">
+                    <p class="field-title slds-text-title_bold" title="Percentile">Percentile</p>
+                    <p><lightning-formatted-number value={citationsPercentile}></lightning-formatted-number></p>
+                    <p><lightning-formatted-number value={publicationsPercentile}></lightning-formatted-number></p>
+                </div>
+            </lightning-layout-item>
+            <lightning-layout-item padding="around-small">
+                <div class="header-column">
+                    <p class="field-title slds-text-title_bold" title="Count">Count</p>
+                    <p><lightning-formatted-number value={citationsCount}></lightning-formatted-number></p>
+                    <p><lightning-formatted-number value={publicationsCount}></lightning-formatted-number></p>
+                </div>
+            </lightning-layout-item>
+            <lightning-layout-item padding="around-small">
+                <div class="header-column">
+                    <p class="field-title slds-text-title_bold" title="Cohort Average">Cohort Average</p>
+                    <p><lightning-formatted-number value={citationsAverage} maximum-fraction-digits="0"></lightning-formatted-number></p>
+                    <p><lightning-formatted-number value={publicationsAverage} maximum-fraction-digits="0"></lightning-formatted-number></p>
+                </div>
+            </lightning-layout-item>
+        </lightning-layout>
     </lightning-card>
 </template>
