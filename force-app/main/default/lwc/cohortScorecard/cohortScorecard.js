@@ -41,10 +41,10 @@ export default class CohortScorecard extends LightningElement {
     }
 
     get citationsAverage() {
-        return getFieldValue(this.contact.data, COHORT_CITATIONS_AVERAGE_FIELD);
+        return 10 ** getFieldValue(this.contact.data, COHORT_CITATIONS_AVERAGE_FIELD);
     }
 
     get publicationsAverage() {
-        return getFieldValue(this.contact.data, COHORT_PUBLICATIONS_AVERAGE_FIELD);
+        return 10 ** getFieldValue(this.contact.data, COHORT_PUBLICATIONS_AVERAGE_FIELD);
     }
 }
