@@ -7,6 +7,7 @@ import CITATIONS_COUNT_FIELD from '@salesforce/schema/Contact.Dimensions_Citatio
 import PUBLICATIONS_COUNT_FIELD from '@salesforce/schema/Contact.Dimensions_Total_Publications__c';
 import COHORT_CITATIONS_AVERAGE_FIELD from '@salesforce/schema/Contact.Cohort__r.Average_Total_Citations__c';
 import COHORT_PUBLICATIONS_AVERAGE_FIELD from '@salesforce/schema/Contact.Cohort__r.Average_Number_Of_Publications__c';
+import COHORT_NAME_FIELD from '@salesforce/schema/Contact.Cohort__r.Name';
 
 const fields = [
     PERCENTILE_CITATIONS_FIELD, 
@@ -14,7 +15,8 @@ const fields = [
     CITATIONS_COUNT_FIELD, 
     PUBLICATIONS_COUNT_FIELD,
     COHORT_CITATIONS_AVERAGE_FIELD,
-    COHORT_PUBLICATIONS_AVERAGE_FIELD
+    COHORT_PUBLICATIONS_AVERAGE_FIELD,
+    COHORT_NAME_FIELD
 ];
 
 export default class CohortScorecard extends LightningElement {
@@ -23,6 +25,10 @@ export default class CohortScorecard extends LightningElement {
 
     @wire(getRecord, { recordId: '$recordId', fields })
     contact;
+
+    get cohortName() {
+        return getFieldValue(this.contact.data, COHORT_NAME_FIELD);
+    }
 
     get citationsPercentile() {
         return getFieldValue(this.contact.data, PERCENTILE_CITATIONS_FIELD);
